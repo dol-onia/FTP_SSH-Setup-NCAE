@@ -45,7 +45,7 @@ chmod 755 "$FTP_DIR"
 echo "Creating FTP users..."
 for USER in "${FTP_USERS[@]}"; do
     # Create user with no shell access
-    useradd -m -d "$FTP_DIR/$USER" -s /sbin/nologin "$USER"
+    useradd -m -d "$FTP_DIR/$USER" "$USER"
 
     # Set the password hash
     usermod --password "$PASSWORD_HASH" "$USER"
